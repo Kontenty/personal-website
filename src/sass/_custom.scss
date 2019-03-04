@@ -1,0 +1,290 @@
+#loader-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  #loader {
+    position: relative;
+    left: 40%;
+    top: 40%;
+    z-index: 1001;
+  }
+  .loader-section {
+    position: absolute;
+    top: 0;
+    width: 51%;
+    height: 100%;
+    background: #222222;
+    z-index: 1000;
+  }
+  .section-left {
+    left: 0;
+  }
+  .section-right {
+    right: 0;
+  }
+}
+.loaded #loader-wrapper .loader-section.section-left {
+  -webkit-transform: translateX(-100%); /* Chrome, Opera 15+, Safari 3.1+ */
+  -ms-transform: translateX(-100%); /* IE 9 */
+  transform: translateX(-100%); /* Firefox 16+, IE 10+, Opera */
+}
+
+.loaded #loader-wrapper .loader-section.section-right {
+  -webkit-transform: translateX(100%); /* Chrome, Opera 15+, Safari 3.1+ */
+  -ms-transform: translateX(100%); /* IE 9 */
+  transform: translateX(100%); /* Firefox 16+, IE 10+, Opera */
+}
+.loaded #loader {
+  opacity: 0;
+  transition: all 0.3s ease-out;
+}
+.loaded #loader-wrapper {
+  visibility: hidden;
+  -webkit-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  transform: translateY(-100%);
+
+  -webkit-transition: all 0.3s 0.6s ease-out;
+  transition: all 0.3s 0.6s ease-out;
+}
+.loaded #loader-wrapper .loader-section.section-right,
+.loaded #loader-wrapper .loader-section.section-left {
+  -webkit-transition: all 0.3s 0.3s ease-out;
+  transition: all 0.3s 0.3s ease-out;
+}
+
+.loaded .preloader-wrapper {
+  display: none;
+}
+
+//  HEADER
+#langDropdown {
+  top: -64px;
+}
+nav {
+  background-color: $dark-purple;
+  position: fixed;
+  top: 0;
+  z-index: 997;
+  li > a {
+    text-transform: uppercase;
+  }
+  &.on-top {
+    background-color: transparent;
+    box-shadow: none;
+  }
+}
+.nav-wrapper {
+  width: 90vw;
+  margin: 0 auto;
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    margin: 0;
+  }
+}
+.brand-logo {
+  font-family: $font-mono;
+  font-weight: 400;
+  text-transform: lowercase;
+}
+.parallax-container.full-height {
+  height: 100vh;
+}
+#header-cover {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(
+    rgba($color-nav-shade, 0.5) 0%,
+    rgba($color-nav-shade, 0.2) 15%,
+    rgba($color-nav-shade, 0.1) 100%
+  );
+  font-family: "Comfortaa";
+  color: #fff;
+  font-weight: 300;
+}
+#header-text {
+  width: 40vw;
+  float: right;
+  margin-right: 5vw;
+  margin-top: 10vh;
+  @include clearfix;
+  @media screen and(max-width: 640px) {
+    width: 90vw;
+    float: none;
+    margin-left: 6vw;
+    margin-right: 4vw;
+  }
+  h1 {
+    font-size: 50px;
+  }
+  span {
+    display: inline-block;
+    margin-bottom: 0.1em;
+    padding: 8px;
+    box-shadow: 8px 0 0 rgba($dark-purple, 0.7),
+      -8px 0 0 rgba($dark-purple, 0.7);
+    background-color: $dark-purple;
+    background-color: rgba($dark-purple, 0.7);
+    &.hero-subtext {
+      display: inline;
+      text-transform: uppercase;
+      font-weight: 300;
+      font-size: 0.7em;
+    }
+    &.hero-subtext2 {
+      display: inline;
+      font-weight: 300;
+      font-size: 0.5em;
+    }
+  }
+  .btn-floating {
+    opacity: 0.8;
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+.hero-text {
+  font-size: 24px;
+  margin-top: 100px;
+  padding: 15px 20px;
+  background-color: $dark-purple;
+}
+
+// ABOUT section
+section#about {
+  padding-top: 4rem;
+}
+#about-text-wrapper {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.skill-lockup {
+  max-width: 700px;
+  margin: 100px auto;
+  color: #999;
+  @include clearfix;
+  .skill-unit {
+    width: 350px;
+    float: left;
+    .skill-label {
+      margin-bottom: 3px;
+    }
+  }
+  .skill-label {
+    text-transform: uppercase;
+    font-weight: 300;
+  }
+  .skill-icon {
+    font-size: 0;
+    margin: 2px 0 30px;
+    span {
+      display: inline-block;
+      @include size(14px);
+      background-color: $dark-purple;
+      margin-right: 2px;
+      border-radius: 50%;
+      &:after {
+        content: "";
+        display: block;
+        @include size(10px);
+        background-color: #fff;
+        border-radius: 50%;
+        margin: 2px;
+      }
+    }
+  }
+  $skill: skill;
+  %skill-color {
+    background-color: #ccc;
+  }
+  @for $i from 0 through 9 {
+    .#{$skill}-#{$i} span:nth-child(n + #{$i + 1}) {
+      @extend %skill-color;
+    }
+  }
+}
+
+// SERVICES section
+section#services {
+  background-color: $light-gray;
+  padding-bottom: 4rem;
+  .card {
+    min-height: 320px;
+    svg {
+      @include size(40px, 40px);
+    }
+    hr {
+      border: 2px solid #ffca28;
+    }
+  }
+  .material-icons {
+    font-size: 40px;
+  }
+}
+
+// RIBBON
+#ribbon {
+  .svg-top-container svg {
+    fill: $light-gray;
+  }
+  .cover {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h2 {
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+    }
+    a.btn {
+      font-size: 1.1em;
+    }
+  }
+}
+
+// PROJECTS section
+section#projects {
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+  .card-reveal p {
+    font-size: 1.2em;
+  }
+}
+
+// CONTACT section
+section#contact {
+  font-family: "Comfortaa";
+  text-align: center;
+  background-color: $light-gray;
+}
+#contact-socials {
+  max-width: 700px;
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+}
+.underline {
+  @include size(300px, 5px);
+  margin: 30px auto;
+}
+.contact-form-wrapper {
+  color: white;
+  padding-top: 3em;
+  padding-bottom: 3em;
+  margin-top: 3rem;
+}
+#mail-heading {
+  @include responsive-font(3vw, 24px, 60px);
+}

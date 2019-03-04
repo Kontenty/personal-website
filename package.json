@@ -1,0 +1,31 @@
+{
+  "name": "porfolio-website",
+  "version": "1.0.0",
+  "description": "website with materialize-css and agnular-translate compiled by parcel",
+  "main": "main.js",
+  "scripts": {
+    "prestart": "rimraf dist",
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html -d build"
+  },
+  "staticFiles": {
+    "staticPath": "static",
+    "watcherGlob": "**"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel-bundler": "^1.11.0",
+    "parcel-plugin-static-files-copy": "^2.0.0",
+    "sass": "^1.17.2"
+  },
+  "dependencies": {
+    "angular": "^1.7.7",
+    "angular-translate": "^2.18.1",
+    "aos": "^2.3.4",
+    "jquery": "^3.3.1",
+    "materialize-css": "^1.0.0-rc.2",
+    "rimraf": "^2.6.3"
+  }
+}
