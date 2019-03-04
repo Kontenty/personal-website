@@ -9,4 +9,4 @@ It utilizes:
 - Sass to css compilation
 - Icons - fontello and devicons
   <p>All compiled and bundled by Parcel.js</p>
-  Working site http://konrad.dg.rf
+  Working site http://konrad.rf.gd
